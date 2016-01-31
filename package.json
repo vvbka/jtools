@@ -1,0 +1,31 @@
+{
+  "name": "jtools",
+  "version": "0.0.1",
+  "description": "Makes running Java programs while developing slightly easier.",
+  "main": "bootstrap",
+  "bin": {
+    "jrun": "bin/jrun.py",
+    "jcreate": "bootstrap"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vvbka/jtools.git"
+  },
+  "keywords": [
+    "java",
+    "tools",
+    "helpers"
+  ],
+  "author": "VVBKA",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/vvbka/jtools/issues"
+  },
+  "homepage": "https://github.com/vvbka/jtools#readme",
+  "dependencies": {
+    "cli": "^0.11.1"
+  }
+}

@@ -1,0 +1,15 @@
+#!/usr/bin/env node
+/**
+ * bootstrap - jtools
+ * handles args for jtools
+ * Copyright (C) 2016 VVBKA.
+ */
+
+'use strict';
+
+let path = require('path'),
+    cli = require('cli'),
+    main = require('./bin/' + path.basename(process.argv[1]) + '.js');
+
+cli.parse(main.args);
+cli.main(main.fn);
