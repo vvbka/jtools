@@ -1,0 +1,7 @@
+{
+  "copyright": "Copyright (C) {{copyright_year}} {{author}}.",
+  "author": "John Jonez",
+  "file_header": "/**\n * {{filename}} - {{project_name}}\n * {{copyright}}\n **/",
+  "file_contents": "{{file_header}}\n\nclass {{classname}} {\n    /* implementation */\n}",
+  "main_file_contents": "{{file_header}}\n\nclass {{classname}} {\n    public static void main(String[] args) {\n        /* implementation */\n    }\n}"
+}
