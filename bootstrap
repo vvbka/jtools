@@ -12,7 +12,7 @@ let path = require('path'),
     main = require('./bin/' + path.basename(process.argv[1]) + '.js'),
     fs = require('fs'),
     Handlebars = require('handlebars'),
-    extend = require('extend');
+    extend = require('jquery-extend');
 
 // parse the arguments for this specific command
 cli.parse(main[0]);
