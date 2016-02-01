@@ -5,7 +5,8 @@
   "main": "bootstrap",
   "bin": {
     "jrun": "bin/jrun.py",
-    "jcreate": "bootstrap"
+    "jcreate": "bootstrap",
+    "jconfig": "bootstrap"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -26,6 +27,9 @@
   },
   "homepage": "https://github.com/vvbka/jtools#readme",
   "dependencies": {
-    "cli": "^0.11.1"
+    "cli": "^0.11.1",
+    "handlebars": "^4.0.5",
+    "jquery-extend": "^2.0.3",
+    "rc": "^1.1.6"
   }
 }

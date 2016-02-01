@@ -9,7 +9,49 @@
 
 let path = require('path'),
     cli = require('cli'),
-    main = require('./bin/' + path.basename(process.argv[1]) + '.js');
+    main = require('./bin/' + path.basename(process.argv[1]) + '.js'),
+    fs = require('fs'),
+    Handlebars = require('handlebars'),
+    extend = require('extend');
 
-cli.parse(main.args);
-cli.main(main.fn);
+// parse the arguments for this specific command
+cli.parse(main[0]);
+
+// read in the default config file
+fs.readFile(path.resolve(__dirname, '.jtoolsrc'), 'utf8', function (err, data) {
+    if (err) {
+        console.error(err);
+        process.exit(-1);
+    } else {
+        let config = require('rc')('jtools', JSON.parse(data), {});
+        
+        delete config._;
+        delete config.configs;
+        delete config.config;
+        
+        config.compile = function (more) {
+            more = more || {};
+            var tmp = {}, i;
+            
+            for (i in config) {
+                if (config.hasOwnProperty(i) && typeof config[i] !== 'function') {
+                    if (config[i].indexOf('{{') !== -1) {
+                        let data = JSON.parse(JSON.stringify(config));
+                        extend(data, tmp, more);
+                        data.copyright_year = (new Date()).getFullYear();
+
+                        tmp[i] = Handlebars.compile(config[i])(data);
+                    } else {
+                        tmp[i] = config[i];
+                    }
+                }
+            }
+            
+            return tmp;
+        };
+        
+        cli.main(function (args, opts) {
+            main[1].call(this, args, opts, config);
+        });
+    }
+});
