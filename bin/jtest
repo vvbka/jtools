@@ -2,7 +2,7 @@
 
 file="$1"
 test="$2"
-cwd="$(dirname $0)"
+cwd="$(dirname $(dirname $0))/lib/node_modules/jtools/bin"
 
 if [ -z "$file" ]; then
   echo "Please provide a file to test."
