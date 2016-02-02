@@ -1,0 +1,45 @@
+#!/bin/bash
+
+file="$1"
+test="$2"
+cwd="$(dirname $0)"
+
+if [ -z "$file" ]; then
+  echo "Please provide a file to test."
+  echo "usage: jtest <file>.java <test_class>.java"
+  exit 1
+fi
+
+if [ -z "$test" ]; then
+  echo "Please provide a test class to use."
+  echo "usage: jtest <file>.java <test_class>.java"
+  exit 1
+fi
+
+## the input file should always have .java on it
+if [ "${file: -5}" == ".java" ]; then
+  :
+else
+  file="${file}.java"
+fi
+
+## the test file should never have .java on it
+if [ "${test: -5}" == ".java" ]; then
+  test=$(echo ${test} | sed 's/\.java//')
+fi
+
+# copy over the important jar files
+cp ${cwd}/junit-4.12.jar ./
+cp ${cwd}/hamcrest-core-1.3.jar ./
+
+# compile your file
+javac ${file}
+
+# compile your unit tests
+javac -cp .:junit-4.12.jar ${test}.java
+
+# run your unit tests
+java -cp .:junit-4.12.jar:hamcrest-core-1.3.jar org.junit.runner.JUnitCore ${test}
+
+# remove the jar files
+rm junit-4.12.jar hamcrest-core-1.3.jar

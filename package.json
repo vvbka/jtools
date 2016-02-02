@@ -6,7 +6,8 @@
   "bin": {
     "jrun": "bin/jrun.py",
     "jcreate": "bootstrap",
-    "jconfig": "bootstrap"
+    "jconfig": "bootstrap",
+    "jtest": "bin/jtest"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
