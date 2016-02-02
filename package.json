@@ -1,6 +1,6 @@
 {
   "name": "jtools",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Makes running Java programs while developing slightly easier.",
   "main": "bootstrap",
   "bin": {
