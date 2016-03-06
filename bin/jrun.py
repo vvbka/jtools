@@ -10,6 +10,7 @@ if len(sys.argv)==1:
         print('\033[93m'+'I need a file to compile and run! Exiting. \nTry again with "jrun <file.java>"'+'\033[0m')
         sys.exit(1);
 
+call('rm -rf bin',shell=True)
 mkdir = call('mkdir bin', shell=True)
 if mkdir!=1 and mkdir !=0:
         print('\033[93m'+'Something screwed up when I tried to create ./bin'+'\033[0m')
