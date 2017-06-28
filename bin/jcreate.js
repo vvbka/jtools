@@ -3,12 +3,6 @@
  * Copyright (C) 2016 VVBKA.
  */
 
-// Author: Tony de Peltrie
-// Student number: 19850712
-// Course: ITI 1121-G
-// Assignment: 10
-// Question: 41
-
 'use strict';
 
 var fs = require('fs');
